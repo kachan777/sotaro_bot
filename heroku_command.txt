@@ -1,0 +1,4 @@
+heroku config:add LINE_CHANNEL_ID=" 1469210560"
+heroku config:add LINE_CHANNEL_SECRET="3b7a3c11a069c8dacfdc43c8564d25b2"
+heroku config:add LINE_CHANNEL_MID="u20bf1feff38721ee7229d620d9a7ee12"
+heroku config:add FIXIE_URL="http://fixie:HC5gjGxrlFVEvC5@velodrome.usefixie.com:80"
