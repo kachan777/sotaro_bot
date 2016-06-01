@@ -13,9 +13,9 @@ class App < Sinatra::Base
   "なんかうまいもん食いたいっすね！"
   ]
   
-  idx = rand(5)
-  
   post '/linebot/callback' do
+
+    idx = rand(5)
     params = JSON.parse(request.body.read)
 
     params['result'].each do |msg|
