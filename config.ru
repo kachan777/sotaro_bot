@@ -24,10 +24,9 @@ class App < Sinatra::Base
         toChannel: 1383378250, # Fixed  value
         eventType: "138311608800106203", # Fixed value
         content: {
-          contextType:1,
+          contentType:1,
           toType:1,
-          # text: messages[idx]
-          text: "test"
+          text: messages[idx]
         }
       }
 
