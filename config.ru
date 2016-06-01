@@ -4,6 +4,17 @@ require 'json'
 require 'rest-client'
 
 class App < Sinatra::Base
+  
+  messages = [
+  "かつまっさーん",
+  "ハハハハハハ",
+  "明日からフェス行くんで！",
+  "佐野さん怖いっす",
+  "なんかうまいもん食いたいっすね！"
+  ]
+  
+  idx = rand(5)
+  
   post '/linebot/callback' do
     params = JSON.parse(request.body.read)
 
@@ -12,7 +23,11 @@ class App < Sinatra::Base
         to: [msg['content']['from']],
         toChannel: 1383378250, # Fixed  value
         eventType: "138311608800106203", # Fixed value
-        content: msg['content']
+        content: {
+          contextType:1,
+          toType:1,
+          text: messages[idx]
+        }
       }
 
       endpoint_uri = 'https://trialbot-api.line.me/v1/events'
