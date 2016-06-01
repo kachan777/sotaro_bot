@@ -26,7 +26,8 @@ class App < Sinatra::Base
         content: {
           contextType:1,
           toType:1,
-          text: messages[idx]
+          # text: messages[idx]
+          text: "test"
         }
       }
 
