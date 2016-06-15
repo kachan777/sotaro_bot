@@ -13,15 +13,11 @@ class App < Sinatra::Base
 #  "佐野さん怖いっす",
 #  "なんかうまいもん食いたいっすね！"
 #  ]
-  messages[0] = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=あそぼー&key=4d8f5da67e6d96ef57d8'
-  messages[1] = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=かえれ&key=4d8f5da67e6d96ef57d8'
-  messages[2] = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=どこの国の人&key=4d8f5da67e6d96ef57d8'
-  messages[3] = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=ビール飲みたい&key=4d8f5da67e6d96ef57d8'
-  messages[4] = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=おつかれさまー&key=4d8f5da67e6d96ef57d8'
+  messages = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=hello&key=4d8f5da67e6d96ef57d8'
 
   post '/linebot/callback' do
 
-    idx = rand(5)
+#    idx = rand(5)
     params = JSON.parse(request.body.read)
 
     params['result'].each do |msg|
@@ -32,7 +28,7 @@ class App < Sinatra::Base
         content: {
           contentType:1,
           toType:1,
-          text: messages[idx]
+          text: messages
         }
       }
 
