@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'sinatra/base'
 require 'json'
 require 'rest-client'
+require 'addressable/uri'
 
 class App < Sinatra::Base
   
