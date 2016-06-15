@@ -13,8 +13,9 @@ class App < Sinatra::Base
 #  "佐野さん怖いっす",
 #  "なんかうまいもん食いたいっすね！"
 #  ]
-#  messages = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=hello&key=4d8f5da67e6d96ef57d8'
-  messages = "hi"
+  response = RestClient.get 'https://chatbot-api.userlocal.jp/api/chat?message=hello&key=4d8f5da67e6d96ef57d8'
+  messages = response.to_s
+
   post '/linebot/callback' do
 
 #    idx = rand(5)
