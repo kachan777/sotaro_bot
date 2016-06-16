@@ -11,10 +11,14 @@ class App < Sinatra::Base
   post '/linebot/callback' do
 
     params = JSON.parse(request.body.read)
-    puts params['result']
 
+    params[:result].each do |result|
+      text = result[:content][:text]
+    end
 
-#    res = JSON.parse( RestClient.post 'https://chatbot-api.userlocal.jp/api/chat', sent_msg["message"] , :key => '4d8f5da67e6d96ef57d8')
+puts text
+
+#    res = JSON.parse( RestClient.post 'https://chatbot-api.userlocal.jp/api/chat', text , :key => '4d8f5da67e6d96ef57d8')
 #    puts res
 
 #    params['result'].each do |msg|
