@@ -7,18 +7,15 @@ $stdout.sync = true
 
 class App < Sinatra::Base
 
-
   post '/linebot/callback' do
 
-    #params = JSON.parse(request.body.read)
-
     line_mes = JSON.parse(request.body.read)["result"][0]
-    message = line_mes["content"]["text"]
+    sent_msg = line_mes["content"]["text"]
 
-puts message
+#puts message
 
-#    res = JSON.parse( RestClient.post 'https://chatbot-api.userlocal.jp/api/chat', text , :key => '4d8f5da67e6d96ef57d8')
-#    puts res
+    res = JSON.parse( RestClient.post 'https://chatbot-api.userlocal.jp/api/chat', message => sent_msg , :key => '4d8f5da67e6d96ef57d8')
+    puts res
 
 #    params['result'].each do |msg|
 #      request_content = {
