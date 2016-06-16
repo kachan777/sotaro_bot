@@ -12,6 +12,8 @@ class App < Sinatra::Base
 
     params = JSON.parse(request.body.read)
 
+puts params
+
     params['result'].each do |msg|
       request_content = {
         to: [msg['content']['from']],
