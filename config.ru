@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
   post '/linebot/callback' do
 
-    params = JSON.parse(request.body.read, {:symbolize_names => true})
+    params = JSON.parse(request.body.read)
     result = params[:result][0]
     fwd_msg =result['content']['text']
     puts fwd_msg
