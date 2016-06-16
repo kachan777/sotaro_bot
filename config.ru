@@ -17,6 +17,7 @@ puts dl_res
 puts rply_msg
 
 # --- editing in progress"
+  request.body.rewind
   params = JSON.parse(request.body.read) 
  
   params['result'].each do |msg|
