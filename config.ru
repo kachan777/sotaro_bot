@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
   post '/linebot/callback' do
 
-    params = JSON.parse(request.body.read)
+    params = JSON.parse(request.body.read, {:symbolize_names => true})
     p params[:result]
 
 
