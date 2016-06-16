@@ -13,10 +13,11 @@ class App < Sinatra::Base
     params = JSON.parse(request.body.read)
 
     params['result'].each do |msg|
-      sentmsg = {message: [msg['content']['text']]}
+      request_content = {
+        to: [msg['content']['from']],
+      }
     end
-
-puts sentmsg["message"]
+puts request_content["to"]
     
 #    res = JSON.parse( RestClient.post 'https://chatbot-api.userlocal.jp/api/chat', sent_msg["message"] , :key => '4d8f5da67e6d96ef57d8')
 #    puts res
