@@ -17,11 +17,13 @@ puts dl_res
 puts rply_msg
 
 # --- editing in progress"
-    line_mes["result"].each do |msg|
+  params = JSON.parse(request.body.read) 
+ 
+  params['result'].each do |msg|
       request_content = {
         to: [msg['content']['from']],
         toChannel: 1383378250, # Fixed  value
-       eventType: "138311608800106203", # Fixed value
+        eventType: "138311608800106203", # Fixed value
         content: {
           contentType:1,
           toType:1,
