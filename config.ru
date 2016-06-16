@@ -17,7 +17,7 @@ puts dl_res
 puts rply_msg
 
 # --- editing in progress"
-    line_mes['result'].each do |msg|
+    line_mes["result"].each do |msg|
       request_content = {
         to: [msg['content']['from']],
         toChannel: 1383378250, # Fixed  value
